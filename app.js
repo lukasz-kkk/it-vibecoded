@@ -367,6 +367,7 @@ function renderTheoryArticles() {
     <article class="theory-card">
       <h2>Rodzajniki</h2>
 
+      <h3>Rodzajniki nieokreślone</h3>
       <div class="rule-grid">
         <section class="rule-box">
           <h3>Rodzaj męski <span>(maschile)</span></h3>
@@ -375,20 +376,14 @@ function renderTheoryArticles() {
           <div class="mini-rule">
             <div class="mini-label">un</div>
             <div>
-              przed większością spółgłosek i przed samogłoskami:<br />
-              <strong>un ragazzo</strong>, <strong>un libro</strong>, <strong>un amico</strong>, <strong>un armadio</strong>
+              przed spółgłoską: <strong>un ragazzo</strong>, <strong>un libro</strong>, <strong>un amico</strong>, <strong>un armadio</strong>
             </div>
           </div>
 
           <div class="mini-rule">
             <div class="mini-label">uno</div>
             <div>
-              przed rzeczownikami zaczynającymi się na:<br />
-              <strong>s + spółgłoska</strong>: <strong>uno studente</strong>, <strong>uno zaino</strong><br />
-              <strong>z</strong>: <strong>uno zio</strong><br />
-              <strong>gn</strong>: <strong>uno gnomo</strong><br />
-              <strong>ps / pn</strong>: <strong>uno psicologo</strong>, <strong>uno pneumatico</strong><br />
-              <strong>x, y</strong>: <strong>uno xenofobo</strong>, <strong>uno yacht</strong>
+              przed rzeczownikami zaczynającymi się na: <strong>s + spółgłoska</strong>: <strong>uno studente</strong>, <strong>uno zaino</strong>; <strong>z</strong>: <strong>uno zio</strong>; <strong>gn</strong>: <strong>uno gnomo</strong>; <strong>ps / pn</strong>: <strong>uno psicologo</strong>, <strong>uno pneumatico</strong>; <strong>x, y</strong>: <strong>uno xenofobo</strong>, <strong>uno yacht</strong>
             </div>
           </div>
         </section>
@@ -400,17 +395,63 @@ function renderTheoryArticles() {
           <div class="mini-rule">
             <div class="mini-label">una</div>
             <div>
-              przed rzeczownikami zaczynającymi się na spółgłoskę:<br />
-              <strong>una casa</strong>, <strong>una penna</strong>
+              przed spółgłoską: <strong>una casa</strong>, <strong>una penna</strong>
             </div>
           </div>
 
           <div class="mini-rule">
             <div class="mini-label">un'</div>
             <div>
-              przed rzeczownikami zaczynającymi się na samogłoskę:<br />
-              <strong>un'amica</strong>, <strong>un'isola</strong>
+              przed samogłoską: <strong>un'amica</strong>, <strong>un'isola</strong>
             </div>
+          </div>
+        </section>
+      </div>
+
+      <h3>Rodzajniki określone</h3>
+      <div class="rule-grid">
+        <section class="rule-box">
+          <h3>Rodzaj męski <span>(maschile)</span></h3>
+          <p>Używamy ich, gdy mówimy o czymś konkretnym, znanym lub wcześniej wspomnianym.</p>
+
+          <div class="mini-rule">
+            <div class="mini-label">il</div>
+            <div>przed spółgłoską: <strong>il libro</strong>, <strong>il ragazzo</strong></div>
+          </div>
+
+          <div class="mini-rule">
+            <div class="mini-label">lo</div>
+            <div>przed <strong>s + spółgłoska</strong>, <strong>z</strong>, <strong>gn</strong>, <strong>ps</strong>, <strong>x</strong>, <strong>y</strong>: <strong>lo studente</strong>, <strong>lo zaino</strong></div>
+          </div>
+
+          <div class="mini-rule">
+            <div class="mini-label">l'</div>
+            <div>przed samogłoską: <strong>l'amico</strong>, <strong>l'armadio</strong></div>
+          </div>
+
+          <div class="mini-rule">
+            <div class="mini-label">i / gli</div>
+            <div>liczba mnoga: <strong>i libri</strong>, <strong>gli studenti</strong>, <strong>gli amici</strong></div>
+          </div>
+        </section>
+
+        <section class="rule-box">
+          <h3>Rodzaj żeński <span>(femminile)</span></h3>
+          <p>W rodzaju żeńskim używamy form <strong>la</strong>, <strong>l'</strong> oraz <strong>le</strong>.</p>
+
+          <div class="mini-rule">
+            <div class="mini-label">la</div>
+            <div>przed spółgłoską: <strong>la casa</strong>, <strong>la penna</strong></div>
+          </div>
+
+          <div class="mini-rule">
+            <div class="mini-label">l'</div>
+            <div>przed samogłoską: <strong>l'amica</strong>, <strong>l'isola</strong></div>
+          </div>
+
+          <div class="mini-rule">
+            <div class="mini-label">le</div>
+            <div>liczba mnoga: <strong>le case</strong>, <strong>le amiche</strong></div>
           </div>
         </section>
       </div>
@@ -418,10 +459,10 @@ function renderTheoryArticles() {
       <div class="summary-box">
         <h3>Najważniejsze</h3>
         <ul>
-          <li><strong>un / uno</strong> = męski</li>
-          <li><strong>una / un'</strong> = żeński</li>
-          <li><strong>uno</strong> pojawia się przed trudnymi początkiem słowa</li>
-          <li><strong>un'</strong> pojawia się przed samogłoską</li>
+          <li><strong>un / uno</strong> = męski, nieokreślony</li>
+          <li><strong>una / un'</strong> = żeński, nieokreślony</li>
+          <li><strong>il / lo / l' / i / gli</strong> = męski, określony</li>
+          <li><strong>la / l' / le</strong> = żeński, określony</li>
         </ul>
       </div>
     </article>
@@ -460,6 +501,31 @@ function renderNumbersRules() {
             <div class="mini-label">28</div>
             <div><strong>venti</strong> + <strong>otto</strong> = <strong>ventotto</strong> (a nie <strong>ventiotto</strong>)</div>
           </div>
+        </section>
+      </div>
+    </article>
+  `;
+}
+
+function renderWeekdayTimeNotes() {
+  return `
+    <article class="theory-card weekday-note">
+      <h3>Jak tworzyć zwroty z czasem</h3>
+      <div class="rule-grid">
+        <section class="rule-box">
+          <div class="mini-rule">
+            <div class="mini-label">tra</div>
+            <div><strong>tra</strong> = <strong>za</strong> — np. <strong>tra due giorni</strong> = <strong>za dwa dni</strong></div>
+          </div>
+          <div class="mini-rule">
+            <div class="mini-label">fa</div>
+            <div><strong>fa</strong> = <strong>temu</strong> — np. <strong>tre giorni fa</strong> = <strong>trzy dni temu</strong></div>
+          </div>
+        </section>
+        <section class="rule-box">
+          <h3>Ważna uwaga</h3>
+          <p><strong>fra tre</strong> po włosku znaczy <strong>„za trzy”</strong> (np. w odniesieniu do czasu).</p>
+          <p><strong>fra</strong> i <strong>tra</strong> mają to samo znaczenie i często są zamienne. W praktyce wybiera się jedną formę ze względu na brzmienie i wygodę wymowy (żeby nie mówić "tra tre").</p>
         </section>
       </div>
     </article>
@@ -538,10 +604,12 @@ async function loadWordsTab(subcategoryId) {
           : 'Włoski';
 
     const introMarkup = selected.id === 'numbers' ? renderNumbersRules() : '';
+    const weekdayNote = selected.id === 'weekdays' ? renderWeekdayTimeNotes() : '';
     const markup = `
       ${renderWordControls(selected.id)}
       ${introMarkup}
       ${groups.map((group) => renderGroup(group, selected.columnKind, firstColumnLabel)).join('')}
+      ${weekdayNote}
     `;
 
     renderContent(markup);

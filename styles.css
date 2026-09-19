@@ -393,6 +393,10 @@ h1 {
   padding-left: 18px;
 }
 
+.weekday-note {
+  margin-top: 18px;
+}
+
 .empty-state {
   display: flex;
   align-items: center;

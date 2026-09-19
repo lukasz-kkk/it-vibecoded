@@ -1,0 +1,20 @@
+# Mieszkanie i dom
+la porta | drzwi | door
+il tavolo | stół / stolik | table
+la sedia | krzesło | chair
+la poltrona | fotel | armchair
+il pavimento | podłoga | floor
+il terrazzo | taras | terrace
+le piante | rośliny | plants
+la carta igienica | papier toaletowy | toilet paper
+una perdita | strata / wyciek | leak
+il riscaldamento | ogrzewanie | heating
+l'asciugamano | ręcznik | towel
+l'asciugacapelli | suszarka do włosów | hair dryer
+
+# Wnętrze i praktyczność
+lo spazio | przestrzeń / miejsce | space / place
+il bicchiere | szklanka / kieliszek | glass / cup
+rotto | zepsuty / uszkodzony | broken / damaged
+scomodo | niewygodny | inconvenient / uncomfortable
+sporco | brudny | dirty

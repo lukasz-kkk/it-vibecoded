@@ -1,0 +1,15 @@
+# Dane osobowe
+l'indirizzo | adres | address
+il nome | imię | name
+il cognome | nazwisko | surname / last name
+il/la cantante | piosenkarz / piosenkarka | singer
+il paese | kraj / wieś / miejscowość | country / village / place
+il quartiere | dzielnica | district / neighborhood
+il segreto | sekret / tajemnica | secret
+le esperienze | doświadczenia | experiences
+
+# Inne ważne słowa
+il/la interprete | tłumacz / tłumaczka | interpreter
+la parola | słowo | word
+il problema | problem | problem
+la soluzione | rozwiązanie | solution

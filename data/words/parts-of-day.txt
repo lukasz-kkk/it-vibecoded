@@ -1,0 +1,13 @@
+# Pory dnia
+la mattina | rano / poranek | morning
+il pomeriggio | popołudnie | afternoon
+la sera | wieczór | evening
+la notte | noc | night
+
+# Czas
+ieri | wczoraj | yesterday
+oggi | dzisiaj | today
+domani | jutro | tomorrow
+dopo | po / potem | after / later
+tra | za — np. tra due giorni = za dwa dni | in / after
+fa | temu — np. tre giorni fa = trzy dni temu | ago
