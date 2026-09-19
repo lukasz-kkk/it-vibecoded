@@ -2,6 +2,7 @@
 la mattina | rano / poranek | morning
 il pomeriggio | popołudnie | afternoon
 la sera | wieczór | evening
+il giorno | dzień | day
 la notte | noc | night
 
 # Czas

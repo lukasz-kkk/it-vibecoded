@@ -383,7 +383,12 @@ function renderTheoryArticles() {
           <div class="mini-rule">
             <div class="mini-label">uno</div>
             <div>
-              przed rzeczownikami zaczynającymi się na: <strong>s + spółgłoska</strong>: <strong>uno studente</strong>, <strong>uno zaino</strong>; <strong>z</strong>: <strong>uno zio</strong>; <strong>gn</strong>: <strong>uno gnomo</strong>; <strong>ps / pn</strong>: <strong>uno psicologo</strong>, <strong>uno pneumatico</strong>; <strong>x, y</strong>: <strong>uno xenofobo</strong>, <strong>uno yacht</strong>
+              przed rzeczownikami zaczynającymi się na:<br />
+              <strong>s + spółgłoska</strong>: <strong>uno studente</strong><br />
+              <strong>z</strong>: <strong>uno zio</strong>, <strong>uno zaino</strong><br />
+              <strong>gn</strong>: <strong>uno gnomo</strong><br />
+              <strong>ps / pn</strong>: <strong>uno psicologo</strong>, <strong>uno pneumatico</strong><br />
+              <strong>x, y</strong>: <strong>uno xenofobo</strong>, <strong>uno yacht</strong>
             </div>
           </div>
         </section>
@@ -430,8 +435,18 @@ function renderTheoryArticles() {
           </div>
 
           <div class="mini-rule">
-            <div class="mini-label">i / gli</div>
-            <div>liczba mnoga: <strong>i libri</strong>, <strong>gli studenti</strong>, <strong>gli amici</strong></div>
+            <div class="mini-label">i</div>
+            <div>
+              liczba mnoga przed zwykłą spółgłoską: <strong>il libro</strong> → <strong>i libri</strong>, <strong>il ragazzo</strong> → <strong>i ragazzi</strong><br />
+              Używamy go, gdy rzeczownik zaczyna się zwykłą spółgłoską.
+            </div>
+          </div>
+
+          <div class="mini-rule">
+            <div class="mini-label">gli</div>
+            <div>
+              liczba mnoga przed samogłoską, <strong>s + spółgłoska</strong>, <strong>z</strong>, <strong>gn</strong>, <strong>ps</strong>, <strong>x</strong>, <strong>y</strong>: <strong>l'amico</strong> → <strong>gli amici</strong>, <strong>lo studente</strong> → <strong>gli studenti</strong>, <strong>lo zaino</strong> → <strong>gli zaini</strong>
+            </div>
           </div>
         </section>
 

@@ -28,3 +28,9 @@ dunque | więc / zatem | so / therefore
 perché | ponieważ / dlaczego | because / why
 secondo te | według ciebie | in your opinion
 secondo me | według mnie | in my opinion
+
+# Inne ważne słowa
+il/la interprete | tłumacz / tłumaczka | interpreter
+la parola | słowo | word
+il problema | problem | problem
+la soluzione | rozwiązanie | solution
