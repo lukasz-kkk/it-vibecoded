@@ -1,0 +1,7 @@
+# Liczby
+0 | zero | zero
+1 | uno | uno
+2 | due | due
+3 | tre | tre
+4 | quattro | quattro
+5 | cinque | cinque

@@ -1,0 +1,9 @@
+# Przymiotniki
+bello | piękny | bello / bella
+grande | duży | grande
+veloce | szybki | veloce
+
+# Kolory i opis
+bianco | biały | bianco / bianchi
+verde | zielony | verde
+nuovo | nowy | nuovo / nuova

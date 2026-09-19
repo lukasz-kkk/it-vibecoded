@@ -1,0 +1,8 @@
+# Dni tygodnia
+lunedì | poniedziałek | Monday
+martedì | wtorek | Tuesday
+mercoledì | środa | Wednesday
+giovedì | czwartek | Thursday
+venerdì | piątek | Friday
+sabato | sobota | Saturday
+domenica | niedziela | Sunday

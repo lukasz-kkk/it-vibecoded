@@ -1,0 +1,249 @@
+:root {
+  --bg: #f4f7fb;
+  --bg-elevated: #ffffff;
+  --surface: #edf3ff;
+  --surface-strong: #dfe9ff;
+  --text: #1d2a3a;
+  --muted: #5a6a82;
+  --accent: #4568dc;
+  --accent-strong: #2e4bb9;
+  --accent-soft: rgba(69, 104, 220, 0.12);
+  --success: #1ca57a;
+  --border: rgba(29, 42, 58, 0.08);
+  --shadow: 0 18px 48px rgba(70, 98, 172, 0.12);
+}
+
+body[data-theme='dark'] {
+  --bg: #101827;
+  --bg-elevated: #172133;
+  --surface: #1f2c42;
+  --surface-strong: #2a3d5d;
+  --text: #edf3ff;
+  --muted: #b9c6d8;
+  --accent: #8aaaef;
+  --accent-strong: #b8cbff;
+  --accent-soft: rgba(138, 170, 239, 0.18);
+  --success: #5ed2a2;
+  --border: rgba(237, 243, 255, 0.08);
+  --shadow: 0 18px 48px rgba(3, 6, 20, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, #eef3ff 100%);
+  color: var(--text);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+body[data-theme='dark'] {
+  background: linear-gradient(180deg, var(--bg) 0%, #0b1322 100%);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.app-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 18px 48px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  border-radius: 999px;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.theme-toggle .icon {
+  font-size: 1.25rem;
+}
+
+.tabbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  margin-bottom: 22px;
+}
+
+.tab {
+  flex: 1 1 140px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.tab.is-active {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: white;
+  box-shadow: 0 12px 24px rgba(69, 104, 220, 0.2);
+}
+
+.page-content {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.tab-panel {
+  min-height: 320px;
+}
+
+.group {
+  margin-bottom: 28px;
+}
+
+.group:last-child {
+  margin-bottom: 0;
+}
+
+.group h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card .tag {
+  display: inline-block;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.card .meta {
+  margin-top: auto;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  border: 1px dashed var(--border);
+  border-radius: 18px;
+  color: var(--muted);
+  background: var(--surface);
+  text-align: center;
+  padding: 24px;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .tabbar {
+    padding: 8px;
+  }
+
+  .tab {
+    flex-basis: calc(50% - 8px);
+  }
+
+  .page-content {
+    padding: 14px;
+  }
+}

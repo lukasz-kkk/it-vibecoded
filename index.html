@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Italian Notes</title>
+    <meta
+      name="description"
+      content="Prosta, skalowalna strona z notatkami do włoskiego."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Italian Notes</p>
+          <h1>Notebook do włoskiego</h1>
+        </div>
+
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Przełącz tryb ciemny"
+        >
+          <span class="icon" aria-hidden="true">🌙</span>
+        </button>
+      </header>
+
+      <nav class="tabbar" aria-label="Zakładki z materiałami">
+        <button type="button" class="tab is-active" data-tab="verbs">Czasowniki</button>
+        <button type="button" class="tab" data-tab="adjectives">Przymiotniki</button>
+        <button type="button" class="tab" data-tab="modal">Móc / chcieć / musieć</button>
+        <button type="button" class="tab" data-tab="numbers">Liczby</button>
+        <button type="button" class="tab" data-tab="weekdays">Dni tygodnia</button>
+      </nav>
+
+      <main class="page-content">
+        <section id="tabContent" class="tab-panel" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
