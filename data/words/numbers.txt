@@ -1,12 +1,33 @@
-# Liczby
-0 | zero | zero
-1 | uno | uno
-2 | due | due
-3 | tre | tre
-4 | quattro | quattro
-5 | cinque | cinque
-6 | sei | sei
-7 | sette | sette
-8 | otto | otto
-9 | nove | nove
-10 | dieci | dieci
+# Liczby od 1 do 20
+1 | uno | jeden
+2 | due | dwa
+3 | tre | trzy
+4 | quattro | cztery
+5 | cinque | pięć
+6 | sei | sześć
+7 | sette | siedem
+8 | otto | osiem
+9 | nove | dziewięć
+10 | dieci | dziesięć
+11 | undici | jedenaście
+12 | dodici | dwanaście
+13 | tredici | trzynaście
+14 | quattordici | czternaście
+15 | quindici | piętnaście
+16 | sedici | szesnaście
+17 | diciassette | siedemnaście
+18 | diciotto | osiemnaście
+19 | diciannove | dziewiętnaście
+20 | venti | dwadzieścia
+
+# Liczby co 10 do 100
+10 | dieci | dziesięć
+20 | venti | dwadzieścia
+30 | trenta | trzydzieści
+40 | quaranta | czterdzieści
+50 | cinquanta | pięćdziesiąt
+60 | sessanta | sześćdziesiąt
+70 | settanta | siedemdziesiąt
+80 | ottanta | osiemdziesiąt
+90 | novanta | dziewięćdziesiąt
+100 | cento | sto

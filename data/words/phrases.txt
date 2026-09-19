@@ -1,0 +1,40 @@
+# Przywitania
+ciao | cześć | hi / bye
+buongiorno | dzień dobry | good morning
+buonasera | dobry wieczór | good evening
+buonanotte | dobranoc | good night
+
+# Pożegnania
+arrivederci | do widzenia | goodbye
+addio | żegnaj | farewell
+ciao | cześć / na razie | hi / bye
+
+# Jak się masz
+come stai? | jak się masz? | how are you?
+sto bene | czuję się dobrze | I am fine
+non sto bene | nie czuję się dobrze | I am not well
+
+# Jak masz na imię
+come ti chiami? | jak masz na imię? | what is your name?
+mi chiamo ... | nazywam się ... | my name is ...
+
+# Ile masz lat
+quanti anni hai? | ile masz lat? | how old are you?
+ho venti anni | mam dwadzieścia lat | I am twenty years old
+
+# Gdzie mieszkasz
+dove abiti? | gdzie mieszkasz? | where do you live?
+di dove abiti? | gdzie mieszkasz? | where do you live?
+abito a ... | mieszkam w ... | I live in ...
+
+# Przepraszam
+scusa | przepraszam | sorry
+scusi | przepraszam / proszę wybaczyć | excuse me
+mi dispiace | przykro mi | I'm sorry
+
+# Inne przydatne zwroty
+grazie | dziękuję | thank you
+prego | proszę / bardzo proszę | you're welcome
+per favore | proszę | please
+non capisco | nie rozumiem | I don't understand
+parli inglese? | mówisz po angielsku? | do you speak English?

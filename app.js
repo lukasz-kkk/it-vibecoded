@@ -3,6 +3,20 @@ const subTabBar = document.getElementById('subTabBar');
 const tabContent = document.getElementById('tabContent');
 const themeToggle = document.getElementById('themeToggle');
 
+const WORD_SUBCATEGORIES = Array.isArray(window.WORD_CATEGORIES) && window.WORD_CATEGORIES.length
+  ? window.WORD_CATEGORIES
+  : [
+      { id: 'numbers', label: 'Liczby', file: 'data/words/numbers.txt', columnKind: 'translation' },
+      { id: 'weekdays', label: 'Dni tygodnia', file: 'data/words/weekdays.txt', columnKind: 'translation' },
+      { id: 'food', label: 'Jedzenie', file: 'data/words/food.txt', columnKind: 'translation' }
+    ];
+
+const PHRASE_CATEGORIES = Array.isArray(window.PHRASE_CATEGORIES) && window.PHRASE_CATEGORIES.length
+  ? window.PHRASE_CATEGORIES
+  : [
+      { id: 'basic', label: 'Podstawowe', file: 'data/words/phrases.txt', columnKind: 'translation' }
+    ];
+
 const MAIN_CATEGORIES = {
   vocabulary: {
     label: 'Słownictwo',
@@ -10,6 +24,7 @@ const MAIN_CATEGORIES = {
       { id: 'verbs', label: 'Czasowniki' },
       { id: 'adjectives', label: 'Przymiotniki' },
       { id: 'modal', label: 'Móc / chcieć / musieć' },
+      { id: 'phrases', label: 'Zwroty' },
       { id: 'words', label: 'Słówka' }
     ]
   },
@@ -29,17 +44,10 @@ const DATA_FILES = {
   modal: { file: 'data/modal-verbs.txt', columnKind: 'modal' }
 };
 
-const WORD_SUBCATEGORIES = Array.isArray(window.WORD_CATEGORIES) && window.WORD_CATEGORIES.length
-  ? window.WORD_CATEGORIES
-  : [
-      { id: 'numbers', label: 'Liczby', file: 'data/words/numbers.txt', columnKind: 'translation' },
-      { id: 'weekdays', label: 'Dni tygodnia', file: 'data/words/weekdays.txt', columnKind: 'translation' },
-      { id: 'food', label: 'Jedzenie', file: 'data/words/food.txt', columnKind: 'translation' }
-    ];
-
 const state = {
   mainCategory: 'vocabulary',
   vocabularyTab: 'verbs',
+  phraseTab: 'basic',
   theoryTab: 'are',
   activeWordSubcategory: 'numbers'
 };
@@ -82,7 +90,10 @@ function renderMainCategoryBar() {
 
 function renderSubTabs() {
   const tabs = MAIN_CATEGORIES[state.mainCategory].tabs;
-  const activeTab = state.mainCategory === 'vocabulary' ? state.vocabularyTab : state.theoryTab;
+  const activeTab =
+    state.mainCategory === 'vocabulary'
+      ? state.vocabularyTab
+      : state.theoryTab;
 
   subTabBar.innerHTML = tabs
     .map(
@@ -158,6 +169,7 @@ function parseTextFile(content) {
 function renderGroup(group, columnKind = 'translation', firstColumnLabel = 'Włoski') {
   const isModalVerbs = columnKind === 'modal';
   const isAntonymTable = columnKind === 'antonym';
+  const isNumbersTable = firstColumnLabel === 'Liczba';
 
   const rowsMarkup = group.items
     .map((item) => {
@@ -184,6 +196,16 @@ function renderGroup(group, columnKind = 'translation', firstColumnLabel = 'Wło
             <td>${item.value}</td>
             <td class="bold-text">${opposite}</td>
             <td>${oppositePolish}</td>
+          </tr>
+        `;
+      }
+
+      if (isNumbersTable) {
+        return `
+          <tr>
+            <td>${item.label}</td>
+            <td class="bold-text">${item.value}</td>
+            <td>${item.note}</td>
           </tr>
         `;
       }
@@ -217,19 +239,27 @@ function renderGroup(group, columnKind = 'translation', firstColumnLabel = 'Wło
           <th>Polski</th>
         </tr>
       `
-      : `
-        <tr>
-          <th class="bold-text">${firstColumnLabel}</th>
-          <th>Polski</th>
-          <th>${columnKind === 'example' ? 'Przykład' : 'Angielski'}</th>
-        </tr>
-      `;
+      : isNumbersTable
+        ? `
+          <tr>
+            <th class="bold-text">Liczba</th>
+            <th class="bold-text">Włoski</th>
+            <th class="bold-text">Polski</th>
+          </tr>
+        `
+        : `
+          <tr>
+            <th class="bold-text">${firstColumnLabel}</th>
+            <th>Polski</th>
+            <th>${columnKind === 'example' ? 'Przykład' : 'Angielski'}</th>
+          </tr>
+        `;
 
   return `
     <section class="group">
       <h2>${group.title}</h2>
       <div class="table-shell">
-        <table class="data-table ${isAntonymTable ? 'antonym-table' : ''}">
+        <table class="data-table ${isAntonymTable ? 'antonym-table' : ''} ${isNumbersTable ? 'number-table' : ''}">
           <thead>
             ${headersMarkup}
           </thead>
@@ -398,6 +428,44 @@ function renderTheoryArticles() {
   `;
 }
 
+function renderNumbersRules() {
+  return `
+    <article class="theory-card">
+      <h2>Jak tworzyć liczby?</h2>
+
+      <div class="rule-grid">
+        <section class="rule-box">
+          <h3>Ogólna zasada</h3>
+          <p>W języku włoskim liczby od 21 wzwyż tworzy się według schematu <strong>dziesiątka + jedność</strong>.</p>
+
+          <div class="mini-rule">
+            <div class="mini-label">23</div>
+            <div><strong>venti</strong> + <strong>tre</strong> = <strong>ventitre</strong></div>
+          </div>
+
+          <div class="mini-rule">
+            <div class="mini-label">25</div>
+            <div><strong>venti</strong> + <strong>cinque</strong> = <strong>venticinque</strong></div>
+          </div>
+        </section>
+
+        <section class="rule-box">
+          <h3>Wyjątki</h3>
+          <div class="mini-rule">
+            <div class="mini-label">21</div>
+            <div><strong>venti</strong> + <strong>uno</strong> = <strong>ventuno</strong> (a nie <strong>ventiuno</strong>)</div>
+          </div>
+
+          <div class="mini-rule">
+            <div class="mini-label">28</div>
+            <div><strong>venti</strong> + <strong>otto</strong> = <strong>ventotto</strong> (a nie <strong>ventiotto</strong>)</div>
+          </div>
+        </section>
+      </div>
+    </article>
+  `;
+}
+
 function renderTheoryContent() {
   if (state.theoryTab === 'are') {
     renderContent(renderTheoryAre());
@@ -469,8 +537,10 @@ async function loadWordsTab(subcategoryId) {
           ? 'Dzień tygodnia'
           : 'Włoski';
 
+    const introMarkup = selected.id === 'numbers' ? renderNumbersRules() : '';
     const markup = `
       ${renderWordControls(selected.id)}
+      ${introMarkup}
       ${groups.map((group) => renderGroup(group, selected.columnKind, firstColumnLabel)).join('')}
     `;
 
@@ -485,6 +555,36 @@ async function loadWordsTab(subcategoryId) {
       </div>
     `);
     bindWordSubcategoryButtons();
+  }
+}
+
+async function loadPhraseTab(subcategoryId) {
+  const selected = PHRASE_CATEGORIES.find((item) => item.id === subcategoryId) || PHRASE_CATEGORIES[0];
+
+  try {
+    const response = await fetch(selected.file, { cache: 'no-store' });
+
+    if (!response.ok) {
+      throw new Error('Nie udało się pobrać danych');
+    }
+
+    const text = await response.text();
+    const groups = parseTextFile(text);
+
+    if (!groups.length) {
+      renderContent('<div class="empty-state">Brak danych dla tej kategorii.</div>');
+      return;
+    }
+
+    const markup = groups.map((group) => renderGroup(group, selected.columnKind)).join('');
+    renderContent(markup);
+  } catch (error) {
+    renderContent(`
+      <div class="empty-state">
+        Nie udało się załadować danych z pliku.<br />
+        Uruchom lokalny serwer, np. <strong>python -m http.server</strong>, aby przeglądać projekt.
+      </div>
+    `);
   }
 }
 
@@ -529,6 +629,11 @@ function renderCurrentContent() {
   if (state.mainCategory === 'vocabulary') {
     if (state.vocabularyTab === 'words') {
       loadWordsTab(state.activeWordSubcategory);
+      return;
+    }
+
+    if (state.vocabularyTab === 'phrases') {
+      loadPhraseTab('basic');
       return;
     }
 

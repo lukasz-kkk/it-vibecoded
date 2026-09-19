@@ -210,7 +210,12 @@ h1 {
 }
 
 .group {
+  margin-top: 18px;
   margin-bottom: 28px;
+}
+
+.group:first-child {
+  margin-top: 0;
 }
 
 .group:last-child {
@@ -268,6 +273,19 @@ h1 {
 .data-table td:nth-child(3),
 .data-table th:nth-child(3),
 .bold-text {
+  font-weight: 700;
+}
+
+.number-table thead th {
+  font-weight: 700;
+}
+
+.number-table tbody td:first-child,
+.number-table tbody td:nth-child(3) {
+  font-weight: 400;
+}
+
+.number-table tbody td:nth-child(2) {
   font-weight: 700;
 }
 
