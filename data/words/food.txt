@@ -1,0 +1,8 @@
+# Jedzenie
+pane | chleb | bread
+acqua | woda | water
+latte | mleko | milk
+caffè | kawa | coffee
+pizza | pizza | pizza
+frutta | owoce | fruit
+verdura | warzywa | vegetables

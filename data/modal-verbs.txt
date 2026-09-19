@@ -1,4 +1,4 @@
 # Czasowniki modalne
-potere | móc | posso, puoi, può
-volere | chcieć | voglio, vuoi, vuole
-dovere | musieć | devo, devi, deve
+potere | móc | posso | puoi | può
+volere | chcieć | voglio | vuoi | vuole
+dovere | musieć | devo | devi | deve

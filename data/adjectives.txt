@@ -1,9 +1,21 @@
-# Przymiotniki
-bello | piękny | bello / bella
-grande | duży | grande
-veloce | szybki | veloce
-
-# Kolory i opis
-bianco | biały | bianco / bianchi
-verde | zielony | verde
-nuovo | nowy | nuovo / nuova
+# Przymiotniki - przeciwieństwa
+bello | ładny | brutto | brzydki
+interessante | interesujący | noioso | nudny
+facile | łatwy | difficile | trudny
+freddo | zimny | caldo | gorący
+piccolo | mały | grande | duży
+economico | tani | caro | drogi
+simpatico | sympatyczny | antipatico | nieprzyjemny
+dolce | słodki | amaro | gorzki
+pulito | czysty | sporco | brudny
+buono | dobry | cattivo | zły
+povero | biedny | ricco | bogaty
+cotto | gotowany | crudo | surowy
+felice | szczęśliwy | triste | smutny
+nuovo | nowy | vecchio | stary
+aperto | otwarty | chiuso | zamknięty
+naturale | naturalny | frizzante | musujący
+silenzioso | cichy | rumoroso | głośny
+comodo | wygodny | scomodo | niewygodny
+allegro | radosny | triste | smutny
+sporco | brudny | pulito | czysty
