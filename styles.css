@@ -289,7 +289,7 @@ h1 {
   font-weight: 700;
 }
 
-.theory-card {
+.grammar-card {
   display: block;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -297,22 +297,22 @@ h1 {
   padding: 22px;
 }
 
-.theory-card h2 {
+.grammar-card h2 {
   margin-top: 0;
   margin-bottom: 18px;
 }
 
-.theory-card h3 {
+.grammar-card h3 {
   margin: 0 0 12px;
 }
 
-.theory-card h3 span {
+.grammar-card h3 span {
   font-size: 0.9em;
   color: var(--muted);
   font-weight: 600;
 }
 
-.theory-card p {
+.grammar-card p {
   margin: 0 0 16px;
   line-height: 1.7;
 }
@@ -363,7 +363,7 @@ h1 {
   line-height: 1.8;
 }
 
-.theory-table-shell {
+.grammar-table-shell {
   overflow-x: auto;
   margin: 18px 0;
   border: 1px solid var(--border);
@@ -371,24 +371,24 @@ h1 {
   background: var(--bg-elevated);
 }
 
-.theory-table {
+.grammar-table {
   width: 100%;
   min-width: 420px;
   border-collapse: collapse;
 }
 
-.theory-table th,
-.theory-table td {
+.grammar-table th,
+.grammar-table td {
   border-bottom: 1px solid var(--border);
   padding: 12px 14px;
   text-align: left;
 }
 
-.theory-table thead th {
+.grammar-table thead th {
   background: var(--surface-strong);
 }
 
-.theory-card .examples {
+.grammar-card .examples {
   margin-top: 18px;
   padding-left: 18px;
 }

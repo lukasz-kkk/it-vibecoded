@@ -28,8 +28,8 @@ const MAIN_CATEGORIES = {
       { id: 'words', label: 'Słówka' }
     ]
   },
-  theory: {
-    label: 'Teoria',
+  grammar: {
+    label: 'Gramatyka',
     tabs: [
       { id: 'are', label: 'Czasowniki na -ARE' },
       { id: 'ere', label: 'Czasowniki na -ERE' },
@@ -48,7 +48,7 @@ const state = {
   mainCategory: 'vocabulary',
   vocabularyTab: 'verbs',
   phraseTab: 'basic',
-  theoryTab: 'are',
+  grammarTab: 'are',
   activeWordSubcategory: 'numbers'
 };
 
@@ -93,7 +93,7 @@ function renderSubTabs() {
   const activeTab =
     state.mainCategory === 'vocabulary'
       ? state.vocabularyTab
-      : state.theoryTab;
+      : state.grammarTab;
 
   subTabBar.innerHTML = tabs
     .map(
@@ -114,7 +114,7 @@ function renderSubTabs() {
       if (state.mainCategory === 'vocabulary') {
         state.vocabularyTab = button.dataset.tab;
       } else {
-        state.theoryTab = button.dataset.tab;
+        state.grammarTab = button.dataset.tab;
       }
 
       renderSubTabs();
@@ -272,17 +272,17 @@ function renderGroup(group, columnKind = 'translation', firstColumnLabel = 'Wło
   `;
 }
 
-function renderTheoryAre() {
+function rendergrammarAre() {
   return `
-    <article class="theory-card">
+    <article class="grammar-card">
       <h2>Czasowniki na -ARE</h2>
 
       <p><strong>Przykład:</strong> <strong>parlare</strong> = mówić</p>
 
       <p>Usuwamy <strong>-are</strong> i dodajemy końcówki:</p>
 
-      <div class="theory-table-shell">
-        <table class="theory-table">
+      <div class="grammar-table-shell">
+        <table class="grammar-table">
           <thead>
             <tr>
               <th>Osoba</th>
@@ -315,17 +315,17 @@ function renderTheoryAre() {
   `;
 }
 
-function renderTheoryEre() {
+function rendergrammarEre() {
   return `
-    <article class="theory-card">
+    <article class="grammar-card">
       <h2>Czasowniki na -ERE</h2>
 
       <p><strong>Przykład:</strong> <strong>vedere</strong> = widzieć</p>
 
       <p>Usuwamy <strong>-ere</strong>:</p>
 
-      <div class="theory-table-shell">
-        <table class="theory-table">
+      <div class="grammar-table-shell">
+        <table class="grammar-table">
           <thead>
             <tr>
               <th>Osoba</th>
@@ -362,9 +362,9 @@ function renderContent(markup) {
   tabContent.innerHTML = markup;
 }
 
-function renderTheoryArticles() {
+function rendergrammarArticles() {
   return `
-    <article class="theory-card">
+    <article class="grammar-card">
       <h2>Rodzajniki</h2>
 
       <h3>Rodzajniki nieokreślone</h3>
@@ -486,7 +486,7 @@ function renderTheoryArticles() {
 
 function renderNumbersRules() {
   return `
-    <article class="theory-card">
+    <article class="grammar-card">
       <h2>Jak tworzyć liczby?</h2>
 
       <div class="rule-grid">
@@ -524,7 +524,7 @@ function renderNumbersRules() {
 
 function renderWeekdayTimeNotes() {
   return `
-    <article class="theory-card weekday-note">
+    <article class="grammar-card weekday-note">
       <h3>Jak tworzyć zwroty z czasem</h3>
       <div class="rule-grid">
         <section class="rule-box">
@@ -547,18 +547,18 @@ function renderWeekdayTimeNotes() {
   `;
 }
 
-function renderTheoryContent() {
-  if (state.theoryTab === 'are') {
-    renderContent(renderTheoryAre());
+function rendergrammarContent() {
+  if (state.grammarTab === 'are') {
+    renderContent(rendergrammarAre());
     return;
   }
 
-  if (state.theoryTab === 'ere') {
-    renderContent(renderTheoryEre());
+  if (state.grammarTab === 'ere') {
+    renderContent(rendergrammarEre());
     return;
   }
 
-  renderContent(renderTheoryArticles());
+  renderContent(rendergrammarArticles());
 }
 
 function bindWordSubcategoryButtons() {
@@ -724,7 +724,7 @@ function renderCurrentContent() {
     return;
   }
 
-  renderTheoryContent();
+  rendergrammarContent();
 }
 
 function setMainCategory(categoryId) {
