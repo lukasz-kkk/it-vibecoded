@@ -106,6 +106,34 @@ h1 {
   font-size: 1.25rem;
 }
 
+.main-category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.main-tab {
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.main-tab:hover {
+  background: var(--accent-soft);
+}
+
+.main-tab.is-active {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: white;
+  box-shadow: 0 12px 24px rgba(69, 104, 220, 0.2);
+}
+
 .tabbar {
   display: flex;
   flex-wrap: wrap;
@@ -241,6 +269,110 @@ h1 {
 .data-table th:nth-child(3),
 .bold-text {
   font-weight: 700;
+}
+
+.theory-card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.theory-card h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.theory-card h3 {
+  margin: 0 0 12px;
+}
+
+.theory-card h3 span {
+  font-size: 0.9em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.theory-card p {
+  margin: 0 0 16px;
+  line-height: 1.7;
+}
+
+.rule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.rule-box,
+.summary-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.mini-rule {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.mini-rule:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.mini-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-weight: 800;
+}
+
+.summary-box ul {
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.8;
+}
+
+.theory-table-shell {
+  overflow-x: auto;
+  margin: 18px 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-elevated);
+}
+
+.theory-table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+}
+
+.theory-table th,
+.theory-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.theory-table thead th {
+  background: var(--surface-strong);
+}
+
+.theory-card .examples {
+  margin-top: 18px;
+  padding-left: 18px;
 }
 
 .empty-state {

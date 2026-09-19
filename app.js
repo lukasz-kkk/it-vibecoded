@@ -1,6 +1,27 @@
-const tabButtons = document.querySelectorAll('.tab');
+const mainCategoryBar = document.getElementById('mainCategoryBar');
+const subTabBar = document.getElementById('subTabBar');
 const tabContent = document.getElementById('tabContent');
 const themeToggle = document.getElementById('themeToggle');
+
+const MAIN_CATEGORIES = {
+  vocabulary: {
+    label: 'Słownictwo',
+    tabs: [
+      { id: 'verbs', label: 'Czasowniki' },
+      { id: 'adjectives', label: 'Przymiotniki' },
+      { id: 'modal', label: 'Móc / chcieć / musieć' },
+      { id: 'words', label: 'Słówka' }
+    ]
+  },
+  theory: {
+    label: 'Teoria',
+    tabs: [
+      { id: 'are', label: 'Czasowniki na -ARE' },
+      { id: 'ere', label: 'Czasowniki na -ERE' },
+      { id: 'articles', label: 'Rodzajniki' }
+    ]
+  }
+};
 
 const DATA_FILES = {
   verbs: { file: 'data/verbs.txt', columnKind: 'example' },
@@ -8,14 +29,18 @@ const DATA_FILES = {
   modal: { file: 'data/modal-verbs.txt', columnKind: 'modal' }
 };
 
-const WORD_SUBCATEGORIES = [
-  { id: 'numbers', label: 'Liczby', file: 'data/words/numbers.txt', columnKind: 'translation' },
-  { id: 'weekdays', label: 'Dni tygodnia', file: 'data/words/weekdays.txt', columnKind: 'translation' },
-  { id: 'food', label: 'Jedzenie', file: 'data/words/food.txt', columnKind: 'translation' }
-];
+const WORD_SUBCATEGORIES = Array.isArray(window.WORD_CATEGORIES) && window.WORD_CATEGORIES.length
+  ? window.WORD_CATEGORIES
+  : [
+      { id: 'numbers', label: 'Liczby', file: 'data/words/numbers.txt', columnKind: 'translation' },
+      { id: 'weekdays', label: 'Dni tygodnia', file: 'data/words/weekdays.txt', columnKind: 'translation' },
+      { id: 'food', label: 'Jedzenie', file: 'data/words/food.txt', columnKind: 'translation' }
+    ];
 
 const state = {
-  activeTab: 'verbs',
+  mainCategory: 'vocabulary',
+  vocabularyTab: 'verbs',
+  theoryTab: 'are',
   activeWordSubcategory: 'numbers'
 };
 
@@ -34,6 +59,58 @@ themeToggle.addEventListener('click', () => {
   const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
   applyTheme(nextTheme);
 });
+
+function renderMainCategoryBar() {
+  mainCategoryBar.innerHTML = Object.entries(MAIN_CATEGORIES)
+    .map(
+      ([id, category]) => `
+        <button
+          type="button"
+          class="main-tab ${state.mainCategory === id ? 'is-active' : ''}"
+          data-main-category="${id}"
+        >
+          ${category.label}
+        </button>
+      `
+    )
+    .join('');
+
+  document.querySelectorAll('.main-tab').forEach((button) => {
+    button.addEventListener('click', () => setMainCategory(button.dataset.mainCategory));
+  });
+}
+
+function renderSubTabs() {
+  const tabs = MAIN_CATEGORIES[state.mainCategory].tabs;
+  const activeTab = state.mainCategory === 'vocabulary' ? state.vocabularyTab : state.theoryTab;
+
+  subTabBar.innerHTML = tabs
+    .map(
+      (tab) => `
+        <button
+          type="button"
+          class="tab ${activeTab === tab.id ? 'is-active' : ''}"
+          data-tab="${tab.id}"
+        >
+          ${tab.label}
+        </button>
+      `
+    )
+    .join('');
+
+  document.querySelectorAll('.tab').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (state.mainCategory === 'vocabulary') {
+        state.vocabularyTab = button.dataset.tab;
+      } else {
+        state.theoryTab = button.dataset.tab;
+      }
+
+      renderSubTabs();
+      renderCurrentContent();
+    });
+  });
+}
 
 function parseTextFile(content) {
   const groups = [];
@@ -165,8 +242,174 @@ function renderGroup(group, columnKind = 'translation', firstColumnLabel = 'Wło
   `;
 }
 
+function renderTheoryAre() {
+  return `
+    <article class="theory-card">
+      <h2>Czasowniki na -ARE</h2>
+
+      <p><strong>Przykład:</strong> <strong>parlare</strong> = mówić</p>
+
+      <p>Usuwamy <strong>-are</strong> i dodajemy końcówki:</p>
+
+      <div class="theory-table-shell">
+        <table class="theory-table">
+          <thead>
+            <tr>
+              <th>Osoba</th>
+              <th>Końcówka</th>
+              <th>parlare</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>io</td><td><strong>-o</strong></td><td><strong>parl</strong>o</td></tr>
+            <tr><td>tu</td><td><strong>-i</strong></td><td><strong>parl</strong>i</td></tr>
+            <tr><td>lui/lei</td><td><strong>-a</strong></td><td><strong>parl</strong>a</td></tr>
+            <tr><td>noi</td><td><strong>-iamo</strong></td><td><strong>parl</strong>iamo</td></tr>
+            <tr><td>voi</td><td><strong>-ate</strong></td><td><strong>parl</strong>ate</td></tr>
+            <tr><td>loro</td><td><strong>-ano</strong></td><td><strong>parl</strong>ano</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="examples">
+        <strong>io parlo</strong> – mówię<br />
+        <strong>tu parli</strong> – mówisz<br />
+        <strong>lui parla</strong> – mówi<br />
+        <strong>noi parliamo</strong> – mówimy<br />
+        <strong>voi parlate</strong> – mówicie<br />
+        <strong>loro parlano</strong> – mówią
+      </p>
+
+      <p><strong>Końcówki -ARE:</strong> <strong>O – I – A – IAMO – ATE – ANO</strong></p>
+    </article>
+  `;
+}
+
+function renderTheoryEre() {
+  return `
+    <article class="theory-card">
+      <h2>Czasowniki na -ERE</h2>
+
+      <p><strong>Przykład:</strong> <strong>vedere</strong> = widzieć</p>
+
+      <p>Usuwamy <strong>-ere</strong>:</p>
+
+      <div class="theory-table-shell">
+        <table class="theory-table">
+          <thead>
+            <tr>
+              <th>Osoba</th>
+              <th>Końcówka</th>
+              <th>vedere</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>io</td><td><strong>-o</strong></td><td><strong>ved</strong>o</td></tr>
+            <tr><td>tu</td><td><strong>-i</strong></td><td><strong>ved</strong>i</td></tr>
+            <tr><td>lui/lei</td><td><strong>-e</strong></td><td><strong>ved</strong>e</td></tr>
+            <tr><td>noi</td><td><strong>-iamo</strong></td><td><strong>ved</strong>iamo</td></tr>
+            <tr><td>voi</td><td><strong>-ete</strong></td><td><strong>ved</strong>ete</td></tr>
+            <tr><td>loro</td><td><strong>-ono</strong></td><td><strong>ved</strong>ono</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="examples">
+        <strong>io vedo</strong> – widzę<br />
+        <strong>tu vedi</strong> – widzisz<br />
+        <strong>lui vede</strong> – widzi<br />
+        <strong>noi vediamo</strong> – widzimy<br />
+        <strong>voi vedete</strong> – widzicie<br />
+        <strong>loro vedono</strong> – widzą
+      </p>
+
+      <p><strong>Końcówki -ERE:</strong> <strong>O – I – E – IAMO – ETE – ONO</strong></p>
+    </article>
+  `;
+}
+
 function renderContent(markup) {
   tabContent.innerHTML = markup;
+}
+
+function renderTheoryArticles() {
+  return `
+    <article class="theory-card">
+      <h2>Rodzajniki</h2>
+
+      <div class="rule-grid">
+        <section class="rule-box">
+          <h3>Rodzaj męski <span>(maschile)</span></h3>
+          <p>W rodzaju męskim używamy form <strong>uno</strong> lub <strong>un</strong>.</p>
+
+          <div class="mini-rule">
+            <div class="mini-label">un</div>
+            <div>
+              przed większością spółgłosek i przed samogłoskami:<br />
+              <strong>un ragazzo</strong>, <strong>un libro</strong>, <strong>un amico</strong>, <strong>un armadio</strong>
+            </div>
+          </div>
+
+          <div class="mini-rule">
+            <div class="mini-label">uno</div>
+            <div>
+              przed rzeczownikami zaczynającymi się na:<br />
+              <strong>s + spółgłoska</strong>: <strong>uno studente</strong>, <strong>uno zaino</strong><br />
+              <strong>z</strong>: <strong>uno zio</strong><br />
+              <strong>gn</strong>: <strong>uno gnomo</strong><br />
+              <strong>ps / pn</strong>: <strong>uno psicologo</strong>, <strong>uno pneumatico</strong><br />
+              <strong>x, y</strong>: <strong>uno xenofobo</strong>, <strong>uno yacht</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="rule-box">
+          <h3>Rodzaj żeński <span>(femminile)</span></h3>
+          <p>W rodzaju żeńskim używamy form <strong>una</strong> lub <strong>un'</strong>.</p>
+
+          <div class="mini-rule">
+            <div class="mini-label">una</div>
+            <div>
+              przed rzeczownikami zaczynającymi się na spółgłoskę:<br />
+              <strong>una casa</strong>, <strong>una penna</strong>
+            </div>
+          </div>
+
+          <div class="mini-rule">
+            <div class="mini-label">un'</div>
+            <div>
+              przed rzeczownikami zaczynającymi się na samogłoskę:<br />
+              <strong>un'amica</strong>, <strong>un'isola</strong>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="summary-box">
+        <h3>Najważniejsze</h3>
+        <ul>
+          <li><strong>un / uno</strong> = męski</li>
+          <li><strong>una / un'</strong> = żeński</li>
+          <li><strong>uno</strong> pojawia się przed trudnymi początkiem słowa</li>
+          <li><strong>un'</strong> pojawia się przed samogłoską</li>
+        </ul>
+      </div>
+    </article>
+  `;
+}
+
+function renderTheoryContent() {
+  if (state.theoryTab === 'are') {
+    renderContent(renderTheoryAre());
+    return;
+  }
+
+  if (state.theoryTab === 'ere') {
+    renderContent(renderTheoryEre());
+    return;
+  }
+
+  renderContent(renderTheoryArticles());
 }
 
 function bindWordSubcategoryButtons() {
@@ -250,11 +493,6 @@ async function loadTab(tabName) {
   const file = config ? config.file : null;
 
   if (!file) {
-    if (tabName === 'words') {
-      loadWordsTab(state.activeWordSubcategory);
-      return;
-    }
-
     renderContent('<div class="empty-state">Brak danych dla tej zakładki.</div>');
     return;
   }
@@ -287,25 +525,27 @@ async function loadTab(tabName) {
   }
 }
 
-function setActiveTab(tabName) {
-  state.activeTab = tabName;
+function renderCurrentContent() {
+  if (state.mainCategory === 'vocabulary') {
+    if (state.vocabularyTab === 'words') {
+      loadWordsTab(state.activeWordSubcategory);
+      return;
+    }
 
-  tabButtons.forEach((button) => {
-    const isActive = button.dataset.tab === tabName;
-    button.classList.toggle('is-active', isActive);
-    button.setAttribute('aria-selected', String(isActive));
-  });
-
-  if (tabName === 'words') {
-    loadWordsTab(state.activeWordSubcategory);
+    loadTab(state.vocabularyTab);
     return;
   }
 
-  loadTab(tabName);
+  renderTheoryContent();
 }
 
-tabButtons.forEach((button) => {
-  button.addEventListener('click', () => setActiveTab(button.dataset.tab));
-});
+function setMainCategory(categoryId) {
+  state.mainCategory = categoryId;
+  renderMainCategoryBar();
+  renderSubTabs();
+  renderCurrentContent();
+}
 
-setActiveTab('verbs');
+renderMainCategoryBar();
+renderSubTabs();
+renderCurrentContent();
