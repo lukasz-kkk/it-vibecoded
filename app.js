@@ -525,7 +525,7 @@ function renderWeekdayTimeNotes() {
         <section class="rule-box">
           <h3>Ważna uwaga</h3>
           <p><strong>fra tre</strong> po włosku znaczy <strong>„za trzy”</strong> (np. w odniesieniu do czasu).</p>
-          <p><strong>fra</strong> i <strong>tra</strong> mają to samo znaczenie i często są zamienne. W praktyce wybiera się jedną formę ze względu na brzmienie i wygodę wymowy (żeby nie mówić "tra tre").</p>
+          <p><strong>fra</strong> i <strong>tra</strong> mają to samo znaczenie i często są zamienne. W praktyce wybiera się jedną formę ze względu na brzmienie i wygodę wymowy (np. mówi się "fra tre", żeby nie mówić "tra tre").</p>
         </section>
       </div>
     </article>
